@@ -68,6 +68,11 @@ public class BaseClass {
 		String generatedstring = RandomStringUtils.randomAlphabetic(8);
 		return (generatedstring);
 	}
+	
+	public String genRandomeNumber() {
+		String generatedNumber = RandomStringUtils.randomNumeric(6);
+		return (generatedNumber);
+	}
 	@AfterClass
 	public void tearDown() {
 		driver.quit();

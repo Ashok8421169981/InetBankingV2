@@ -3,6 +3,7 @@ package in.amazon.utilities;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -84,5 +85,22 @@ public class XLUtils {
 		fo.close();
 	}
 	
-	
+	public static ArrayList <String> getRowData (String xlfile, String xlsheet, int rownum) throws Exception {
+		fi = new FileInputStream(xlfile);
+		wb = new XSSFWorkbook(fi);
+		ws = wb.getSheet(xlsheet);
+		row = ws.getRow(rownum);
+		int maxCells = row.getLastCellNum();
+		
+		ArrayList <String> data = new ArrayList <String>();
+		for (int i=0; i<maxCells; i++)
+		{
+			XSSFCell cell = row.getCell(i);
+			String temp = cell.getStringCellValue();
+			data.add(temp);
+		}
+		wb.close();
+		fi.close();
+		return data;
+	}	
 }
