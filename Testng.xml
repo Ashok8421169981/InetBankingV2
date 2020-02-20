@@ -11,9 +11,10 @@
 	<test name="amazon Test">
 	<parameter name="browser" value="chrome" />
 	<classes>
-		<!-- <class name="in.amazon.testCases.TC_LoginTest_001" />
-	    <class name="in.amazon.testCases.TC_LoginDDT_002" /> -->
+		<class name="in.amazon.testCases.TC_LoginTest_001" />
+	   <!--  <class name="in.amazon.testCases.TC_LoginDDT_002" />  -->
 	    <class name="in.amazon.testCases.TC_AddNewCustomer_003" />
+	     <class name="in.amazon.testCases.TC_EditCustomerdetails_004" />
 	</classes>
 </test>
 

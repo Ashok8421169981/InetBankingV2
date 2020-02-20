@@ -74,15 +74,17 @@ public class TC_AddNewCustomer_003 extends BaseClass{
 				addnewcust.custSubmit();
 				logger.info("Submit button Clicked..!");
 				
-				Thread.sleep(3000);				
+				Thread.sleep(3000);
 				boolean res = driver.getPageSource().contains("Customer Registered Successfully!!!");
 				if (res==true)
 				{
 					Assert.assertTrue(true);
 					logger.info("Test Add New Customer Passed..!");
-					driver.findElement(By.xpath("//a[text()='Home']")).click();
-					driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-					//Thread.sleep(3000);
+					//Storing customer IDs in excel
+					String str = driver.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[4]/td[2]")).getText();
+					XLUtils.setCellData(Path,"CustomerIds",0,0,str);
+					//driver.findElement(By.xpath("//a[text()='Home']")).click();
+					//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 					//driver.switchTo().defaultContent();
 				}
 				else
